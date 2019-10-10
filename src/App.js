@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import Input from './Components/input';
+import Button from './Components/button';
 
 let z = 'btn'
 
@@ -20,11 +22,11 @@ class App extends React.Component{
     const {val,todo} = this.state;
     todo.push(val);
     this.setState({todo:todo, val:""})
-    console.log(todo);
+    //console.log(todo);
   }
 
   deleteTodo = (e)=>{
-    const {val,todo} = this.state;
+    const {todo} = this.state;
     todo.splice(e.target.id,1);
     this.setState({todo:todo });
   }
@@ -33,8 +35,9 @@ class App extends React.Component{
     const {val:a,todo} =  this.state;
     return (
       <div className='a'>
-        <div><button onClick={this.clickHandler}>{z}</button>
-          <input value={a} onChange={this.handleInput} />
+        <div>
+          <Button onClick={this.clickHandler} value={z}></Button>
+          <Input place="Apple" value={a} onChange={this.handleInput} />
         </div>
 
         <div>
@@ -44,7 +47,7 @@ class App extends React.Component{
                 return (
                   <div key={i}>
                     <li>{item}</li>
-                    <button id={i} onClick={this.deleteTodo}>X</button>
+                    <Button id={i} onClick={this.deleteTodo} value='X'></Button>
                   </div>
                 )
               })
