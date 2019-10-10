@@ -23,6 +23,12 @@ class App extends React.Component{
     console.log(todo);
   }
 
+  deleteTodo = (e)=>{
+    const {val,todo} = this.state;
+    todo.splice(e.target.id,1);
+    this.setState({todo:todo });
+  }
+
   render(){
     const {val:a,todo} =  this.state;
     return (
@@ -36,7 +42,10 @@ class App extends React.Component{
             {
               todo.map((item,i)=>{
                 return (
-                  <li key={i}>{item}</li>
+                  <div>
+                    <li key={i}>{item}</li>
+                    <button id={i} onClick={this.deleteTodo}>X</button>
+                  </div>
                 )
               })
             }
