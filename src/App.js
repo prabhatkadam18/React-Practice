@@ -2,8 +2,6 @@ import React from 'react';
 import './App.css';
 
 let z = 'btn'
-let a = "AAA"
-let placeholder = "Hello Type here"
 
 
 class App extends React.Component{
@@ -26,11 +24,23 @@ class App extends React.Component{
   }
 
   render(){
-    const {val:a} =  this.state;
+    const {val:a,todo} =  this.state;
     return (
       <div className='a'>
         <div><button onClick={this.clickHandler}>{z}</button>
           <input value={a} onChange={this.handleInput} />
+        </div>
+
+        <div>
+          <ul>
+            {
+              todo.map((item,i)=>{
+                return (
+                  <li key={i}>{item}</li>
+                )
+              })
+            }
+          </ul>
         </div>
       </div>
     );
