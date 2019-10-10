@@ -42,8 +42,8 @@ class App extends React.Component{
             {
               todo.map((item,i)=>{
                 return (
-                  <div>
-                    <li key={i}>{item}</li>
+                  <div key={i}>
+                    <li>{item}</li>
                     <button id={i} onClick={this.deleteTodo}>X</button>
                   </div>
                 )
