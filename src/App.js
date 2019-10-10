@@ -1,19 +1,41 @@
 import React from 'react';
 import './App.css';
 
-function a(){
-  var arr=[];
-  for(var i=0;i<100;i++){
-    arr.push(<li> {i} </li>);
+let z = 'btn'
+let a = "AAA"
+let placeholder = "Hello Type here"
+
+
+class App extends React.Component{
+  v = 123;
+  state={
+    val: 123,
+    todo: []
   }
-  return arr;
+
+  handleInput=(e)=>{
+    const value = e.target.value;
+    this.setState({val:value, b: 212});
+  }
+
+  clickHandler = (e)=>{
+    const {val,todo} = this.state;
+    todo.push(val);
+    this.setState({todo:todo, val:""})
+    console.log(todo);
+  }
+
+  render(){
+    const {val:a} =  this.state;
+    return (
+      <div className='a'>
+        <div><button onClick={this.clickHandler}>{z}</button>
+          <input value={a} onChange={this.handleInput} />
+        </div>
+      </div>
+    );
+  }
 }
 
-function App() {
-  return (
-    <ul>
-      {a()}
-    </ul>
-  );
-}
 export default App;
+
