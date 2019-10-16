@@ -8,7 +8,7 @@ export default function (props) {
           return (
             <div key={i}>
               <li>{item}</li>
-              <Button id={i} onClick={this.deleteTodo} value='X'></Button>
+              <Button id={i} onClick={props.deleteTodo} value='X'></Button>
             </div>
           )
         })
